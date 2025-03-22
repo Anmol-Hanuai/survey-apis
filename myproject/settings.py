@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#y&w6=8myvcn1b28lw*zs(*v27+(6b-9v+5r%#os6r_8p%)g2p'
+# SECRET_KEY = 'django-insecure-#y&w6=8myvcn1b28lw*zs(*v27+(6b-9v+5r%#os6r_8p%)g2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -145,3 +145,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ALLOWED_HOSTS = ['survey-apis.onrender.com', '127.0.0.1']
 
 SECRET_KEY = config('SECRET_KEY')
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

@@ -12,8 +12,9 @@
 </head>
 <body>
     <h2>Update Trip End Details</h2>
-    <form action="/api/trips/update_end_details/" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form action="/api/trips/{{ trip.id }}/" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
         {% csrf_token %}
+        <input type="hidden" name="_method" value="patch">
         <div class="form-group">
             <label for="vehicle_number">Vehicle Number:</label>
             <input type="text" id="vehicle_number" name="vehicle_number" required>
