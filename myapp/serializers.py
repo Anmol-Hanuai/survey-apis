@@ -22,9 +22,17 @@ class TripSerializer(serializers.ModelSerializer):
         return Trip.objects.create(**validated_data)
     
     def update(self, instance, validated_data):
+        # Update trip fields
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
+        
+        # Handle bill images
+        bill_images = self.context['request'].FILES.getlist('bill_images')
+        if bill_images:
+            for image in bill_images:
+                TripBill.objects.create(trip=instance, image=image)
+        
         return instance
 
 
