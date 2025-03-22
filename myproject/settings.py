@@ -129,4 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # In settings.py
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+ALLOWED_HOSTS = ['survey-apis.onrender.com', 'localhost']
 
