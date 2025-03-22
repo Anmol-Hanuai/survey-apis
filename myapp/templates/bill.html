@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trip End Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { background: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Update Trip End Details</h2>
+    <form action="/api/trips/update_end_details/" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="vehicle_number">Vehicle Number:</label>
+            <input type="text" id="vehicle_number" name="vehicle_number" required>
+        </div>
+        <div class="form-group">
+            <label for="end_odometer_reading">End Odometer Reading:</label>
+            <input type="number" id="end_odometer_reading" name="end_odometer_reading" required>
+        </div>
+        <div class="form-group">
+            <label for="end_location">End Location:</label>
+            <input type="text" id="end_location" name="end_location" required>
+        </div>
+        <div class="form-group">
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required>
+        </div>
+        <div class="form-group">
+            <label for="bill_images">Bill Images:</label>
+            <input type="file" id="bill_images" name="bill_images" multiple>
+        </div>
+        <button type="submit">Submit End Details</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const endOdometerReading = document.getElementById('end_odometer_reading').value;
+            if (!endOdometerReading || isNaN(endOdometerReading)) {
+                alert('Please enter a valid number for the end odometer reading.');
+                return false;  // Prevent form submission
+            }
+            return true;  // Allow form submission
+        }
+    </script>
+</body>
+</html>
