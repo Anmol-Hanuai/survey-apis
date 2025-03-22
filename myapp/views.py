@@ -24,8 +24,12 @@ class TripViewSet(viewsets.ModelViewSet):
         # Handle bill images
         bill_images = request.FILES.getlist('bill_images')  # Get uploaded bill images
         if bill_images:
+            # Delete existing bills for this trip (optional, if you want to replace old bills)
+            instance.bills.all().delete()
+
+            # Create new TripBill objects for the uploaded images
             for image in bill_images:
-                TripBill.objects.create(trip=instance, image=image)  # Create TripBill objects
+                TripBill.objects.create(trip=instance, image=image)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
