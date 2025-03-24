@@ -1,4 +1,6 @@
+# models.py
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class Trip(models.Model):
     # Start journey details
@@ -19,7 +21,7 @@ class Trip(models.Model):
 
 class TripBill(models.Model):
     trip = models.ForeignKey(Trip, related_name='bills', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='trip_bills/')
+    image = CloudinaryField('image')
     
     def __str__(self):
         return f"Bill for {self.trip}"
