@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'survey',
     'cloudinary',
     'cloudinary_storage',
+    'assignsurvey',
 ]
 
 MIDDLEWARE = [
