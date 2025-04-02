@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('myapp.urls')),
     path('api/', include('survey.urls')),
-    path('api/', include('assignsurvey.urls')),
+    path('api/assignsurvey/', include('assignsurvey.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
